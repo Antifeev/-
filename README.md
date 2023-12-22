@@ -2,17 +2,25 @@
 (пожалуйста поставьте хорошую оценку)
 
 using System;
- 
-class Program
+
+namespace FactorialCalculator
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.Write("n: ");
-        int n = int.Parse(Console.ReadLine());
-        long result = 1;
-        for (int i = 1; i <= n; i++)
-            result *= i;
-        Console.WriteLine("f: " + result);
-        Console.ReadKey(true);
+        static void Main(string[] args)
+        {
+            Console.Write("Введите число: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            int result = CalculateFactorial(number);
+            Console.WriteLine($"Факториал числа {number} равен {result}");
+        }
+
+        static int CalculateFactorial(int n)
+        {
+            if (n == 0)
+                return 1;
+            else
+                return n * CalculateFactorial(n - 1);
+        }
     }
 }
